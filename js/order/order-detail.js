@@ -10,7 +10,14 @@ fetch(`http://127.0.0.1:5000/order/id/${_id}`)
     .then(order => {
         let template = createRowTemplate(order);
         $("#order").append(template);
-    });
+    })
+    .then(
+        () => {
+            hideElementsWithoutLetters('size');
+            hideElementsWithoutLetters('ingredients');
+            hideElementsWithoutLetters('beverages')
+        }
+    );
 
 /**
  * Find the template tag and populate it with the data
@@ -19,4 +26,15 @@ fetch(`http://127.0.0.1:5000/order/id/${_id}`)
 function createRowTemplate(order) {
     let template = $("#order-template")[0].innerHTML;
     return Mustache.render(template, order);
+}
+
+function hideElementsWithoutLetters(tdId) {
+  $("#" + tdId)
+    .find("p")
+    .each(function () {
+      var hasLetters = /[a-zA-Z]/.test($(this).text());
+      if (!hasLetters) {
+        $(this).hide();
+      }
+    });
 }
