@@ -10,10 +10,18 @@
   display: none;
 }
 
+#report-alert {
+  display: none;
+}
+
 #size-alert {
   display: none;
 }
 
 .order {
   display: none;
+}
+
+.report {
+    display: none;
 }

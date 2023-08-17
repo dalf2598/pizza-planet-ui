@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="/css/styles.css" />
+</head>
+
+<body>
+    <header class="header-section container-fluid">
+        <div id="navbar-placeholder"></div>
+    </header>
+
+    <div class="container mt-3">
+
+        <div class="jumbotron">
+            <div class="container">
+                <div class="row">
+                    <h1 class="col-md-6">Create 100 Records</h1>
+                    <div class="col-md-6">
+                        <button id="create" class="btn btn-warning btn-lg">Create</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Notification Area -->
+        <div id="report-alert" class="alert alert-success" role="alert">
+            <h4 class="alert-heading">Success!</h4>
+            <p>100 records were added</p>
+        </div>
+
+        <div class="jumbotron">
+            <div class="container">
+                <div class="row">
+                    <h1 class="col-md-6">Generate Report</h1>
+                    <div class="col-md-6">
+                        <button id="generate" class="btn btn-warning btn-lg">Generate</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="report">
+            <div class="jumbotron">
+                <h1 class="text-center">Report 2023</h1>
+                <hr>
+                <h2 class="text-center">Top-Customers</h2>
+                <table id="customers" class="table bg-white table-bordered table-hover">
+                    <thead class="thead-dark">
+                        <tr class="d-flex">
+                            <th class="col-2 text-center">N</th>
+                            <th class="col-5 text-center">Name</th>
+                            <th class="col-5 text-center">Orders</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+                <hr>
+                <h2 class="text-center">Top-Ingredient</h2>
+                <table id="ingredients" class="table bg-white table-bordered table-hover">
+                    <thead class="thead-dark">
+                        <tr class="d-flex">
+                            <th class="col-2 text-center">N</th>
+                            <th class="col-5 text-center">Name</th>
+                            <th class="col-5 text-center">Requests</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+                <hr>
+                <h2 class="text-center">Top-Monthly-Sales</h2>
+                <table id="sales" class="table bg-white table-bordered table-hover">
+                    <thead class="thead-dark">
+                        <tr class="d-flex">
+                            <th class="col-2 text-center">N</th>
+                            <th class="col-5 text-center">Month</th>
+                            <th class="col-5 text-center">Revenue</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <template id="customer-item-template">
+        <tr class="d-flex">
+            <td class="col-2 text-center"><b>{{position}}</b></td>
+            <td class="col-5 text-center">{{name}}</td>
+            <td class="col-5 text-center">{{orders}}</td>
+        </tr>
+    </template>
+
+    <template id="ingredient-item-emplate">
+        <tr class="d-flex">
+            <td class="col-2 text-center"><b>{{position}}</b></td>
+            <td class="col-5 text-center">{{name}}</td>
+            <td class="col-5 text-center">{{requests}}</td>
+        </tr>
+    </template>
+
+    <template id="sale-item-emplate">
+        <tr class="d-flex">
+            <td class="col-2 text-center"><b>{{position}}</b></td>
+            <td class="col-5 text-center">{{month}}</td>
+            <td class="col-5 text-center">{{revenue}}</td>
+        </tr>
+    </template>
+
+    <script src="/js/common-scripts.js"></script>
+    <script src="/js/navbar/navbar.js"></script>
+    <script src="/js/report/report.js"></script>
+</body>
+
+</html>
