@@ -14,27 +14,20 @@
     <div class="container mt-3">
       <!-- Notification Area -->
 
-      <div id="size-alert" class="alert alert-success" role="alert">
+      <div id="beverage-alert" class="alert alert-success" role="alert">
         <h4 class="alert-heading">Great!</h4>
-        <p>Your size was updated successfully</p>
+        <p>Your beverage was saved successfully</p>
       </div>
 
       <div class="jumbotron">
-        <h2 class="text-center">Update Size!</h2>
+        <h2 class="text-center">Add new Beverage!</h2>
 
-        <form id="size-form">
-  
-          <div class="form-group row">
-            <label class="col-sm-2 col-form-label">ID: </label>
-            <div class="col-sm-10">
-              <input id="_id" disabled name="_id" type="text" class="form-control" placeholder="ID" />
-            </div>
-          </div>
+        <form id="beverage-form">
 
           <div class="form-group row">
             <label class="col-sm-2 col-form-label">Name: </label>
             <div class="col-sm-10">
-              <input id="name" required name="name" type="text" class="form-control" placeholder="Name" />
+              <input required name="name" type="text" class="form-control" placeholder="Name" />
             </div>
           </div>
 
@@ -42,13 +35,12 @@
             <label class="col-sm-2 col-form-label">Price: </label>
             <div class="col-sm-10">
               <input
-                id="price"
                 required
                 name="price"
                 type="number"
                 step="0.01"
                 min="0"
-                max="30"
+                max="10"
                 class="form-control"
                 placeholder="Price"
               />
@@ -64,6 +56,6 @@
 
     <script src="/js/common-scripts.js"></script>
     <script src="/js/navbar/navbar.js"></script>
-    <script type="module" src="/js/size/update-size.js"></script>
+    <script type="module" src="/js/beverage/add-beverage.js"></script>
   </body>
 </html>
