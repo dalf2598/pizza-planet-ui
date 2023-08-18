@@ -1,3 +1,5 @@
+import { BASE_URL } from '../constants.js';
+
 $("#create").click(() => createRecords());
 
 $("#generate").click(() => {
@@ -9,7 +11,7 @@ $("#generate").click(() => {
 });
 
 function createRecords() {
-  fetch("http://127.0.0.1:5000/report/", {
+  fetch(`${BASE_URL}/report/`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json; charset=utf-8",
@@ -26,7 +28,7 @@ function showCreateRecordNotification() {
 }
 
 function getStatistics() {
-  fetch("http://127.0.0.1:5000/report/", {
+  fetch(`${BASE_URL}/report/`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json; charset=utf-8",

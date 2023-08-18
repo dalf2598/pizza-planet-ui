@@ -1,6 +1,8 @@
+import { BASE_URL } from '../constants.js';
+
 function postSize(size) {
 
-    fetch('http://127.0.0.1:5000/size/', {
+    fetch(`${BASE_URL}/size/`, {
         method: 'POST',
         body: JSON.stringify(size),
         headers: {

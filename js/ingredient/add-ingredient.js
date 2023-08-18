@@ -1,6 +1,8 @@
+import { BASE_URL } from '../constants.js';
+
 function postIngredient(ingredient) {
 
-    fetch('http://127.0.0.1:5000/ingredient/', {
+    fetch(`${BASE_URL}/ingredient/`, {
         method: 'POST',
         body: JSON.stringify(ingredient),
         headers: {

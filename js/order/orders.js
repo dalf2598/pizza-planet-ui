@@ -1,12 +1,6 @@
-/**
- * Fetch the orders and append to the table
- * 
- * ****************************
- * Please change 'json/orders.json' 
- * with your service endpoint below
- * ****************************
- */
-fetch('http://127.0.0.1:5000/order/')
+import { BASE_URL } from '../constants.js';
+
+fetch(`${BASE_URL}/order/`)
     .then(response => response.json())
     .then(orders => {
         let rows = orders.map(element => createOrderTemplate(element));

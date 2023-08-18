@@ -1,11 +1,8 @@
-/**
- * POST the order on /pizza
- * @param order 
- */
+import { BASE_URL } from './constants.js';
 
 function postOrder(order) {
 
-    fetch('http://127.0.0.1:5000/order/', {
+    fetch(`${BASE_URL}/order/`, {
         method: 'POST',
         body: JSON.stringify(order),
         headers: {
@@ -69,7 +66,7 @@ function showNotification() {
 // Gather information in a dynamic way
 
 function fetchIngredients() {
-    fetch('http://127.0.0.1:5000/ingredient/')
+    fetch(`${BASE_URL}/ingredient/`)
         .then(response => response.json())
         .then(ingredients => {
             let rows = ingredients.map(element => createIngredientTemplate(element));
@@ -79,7 +76,7 @@ function fetchIngredients() {
 }
 
 function fetchOrderSizes() {
-    fetch('http://127.0.0.1:5000/size/')
+    fetch(`${BASE_URL}/size/`)
         .then(response => response.json())
         .then(sizes => {
             let rows = sizes.map(element => createSizeTemplate(element));
@@ -89,7 +86,7 @@ function fetchOrderSizes() {
 }
 
 function fetchBeverages() {
-    fetch('http://127.0.0.1:5000/beverage/')
+    fetch(`${BASE_URL}/beverage/`)
         .then(response => response.json())
         .then(beverages => {
             let rows = beverages.map(element => createBeverageTemplate(element));
