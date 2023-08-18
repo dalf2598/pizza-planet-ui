@@ -1,25 +1,24 @@
 import { BASE_URL } from '../constants.js';
 
-function fetchIngredient(_id) {
-    fetch(`${BASE_URL}/ingredient/id/${_id}`)
+function fetchSize(_id) {
+    fetch(`${BASE_URL}/size/id/${_id}`)
         .then(response => response.json())
-        .then(ingredient => {
-            $("#_id").val(ingredient._id);
-            $("#name").val(ingredient.name);
-            $("#price").val(ingredient.price);
-
+        .then(size => {
+            $("#_id").val(size._id);
+            $("#name").val(size.name);
+            $("#price").val(size.price);
         });
 }
 
 function loadInformation() {
     let urlParams = new URLSearchParams(window.location.search);
     let _id = urlParams.get('_id');
-    fetchIngredient(_id)
+    fetchSize(_id)
 }
 
 function putSize(ingredient) {
 
-    fetch(`${BASE_URL}/ingredient/`, {
+    fetch(`${BASE_URL}/size/`, {
         method: 'PUT',
         body: JSON.stringify(ingredient),
         headers: {
@@ -33,15 +32,15 @@ function putSize(ingredient) {
 /**
  * Get the form and submit it with fetch API
  */
-let ingredientForm = $("#ingredient-form");
+let ingredientForm = $("#size-form");
 ingredientForm.submit(event => {
 
-    let ingredient = getSizeData();
-    putSize(ingredient);
+    let size = getSizeData();
+    putSize(size);
 
     event.preventDefault();
     event.currentTarget.reset();
-    setTimeout(() => window.location.href = '/app/ingredient/ingredients.html', 500);
+    setTimeout(() => (window.location.href = "/app/size/sizes.html"), 500);
 });
 
 /**
@@ -59,7 +58,7 @@ function getSizeData() {
  * Shows a notification when the ingredient is accepted
  */
 function showNotification() {
-    let ingredientAlert = $("#ingredient-alert");
+    let ingredientAlert = $("#size-alert");
     ingredientAlert.toggle();
     setTimeout(() => ingredientAlert.toggle(), 5000);
 }

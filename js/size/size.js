@@ -1,5 +1,6 @@
+import { BASE_URL } from '../constants.js';
 
-fetch('http://127.0.0.1:5000/size/')
+fetch(`${BASE_URL}/size/`)
     .then(response => response.json())
     .then(sizes => {
         let rows = sizes.map(element => createSizeTemplate(element));
