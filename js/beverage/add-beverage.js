@@ -1,38 +1,36 @@
 import { BASE_URL } from '../constants.js';
 
-function postIngredient(ingredient) {
+function postBeverage(beverage) {
 
-    fetch(`${BASE_URL}/ingredient/`, {
+    fetch(`${BASE_URL}/beverage/`, {
         method: 'POST',
-        body: JSON.stringify(ingredient),
+        body: JSON.stringify(beverage),
         headers: {
             "Content-Type": "application/json; charset=utf-8",
         },
     })
         .then(res => res.json())
         .then(res => showNotification());
-
-
 }
 
 /**
  * Get the form and submit it with fetch API
  */
-let ingredientForm = $("#ingredient-form");
-ingredientForm.submit(event => {
+let beverageForm = $("#beverage-form");
+beverageForm.submit(event => {
 
-    let ingredient = getIngredientData();
-    postIngredient(ingredient);
+    let beverage = getBeverageData();
+    postBeverage(beverage);
 
     event.preventDefault();
     event.currentTarget.reset();
-    setTimeout(() => window.location.href = '/app/ingredient/ingredients.html', 500);
+    setTimeout(() => (window.location.href = "/app/beverage/beverages.html"), 500);
 });
 
 /**
  * Gets the order data with JQuery
  */
-function getIngredientData() {
+function getBeverageData() {
 
     return {
         name: $("input[name='name']").val(),
@@ -44,7 +42,7 @@ function getIngredientData() {
  * Shows a notification when the order is accepted
  */
 function showNotification() {
-    let ingredientAlert = $("#ingredient-alert");
-    ingredientAlert.toggle();
-    setTimeout(() => ingredientAlert.toggle(), 5000);
+    let beverageAlert = $("#beverage-alert");
+    beverageAlert.toggle();
+    setTimeout(() => beverageAlert.toggle(), 5000);
 }

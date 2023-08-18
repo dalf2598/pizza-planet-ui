@@ -18,6 +18,10 @@
   display: none;
 }
 
+#beverage-alert{
+  display: none;
+}
+
 .order {
   display: none;
 }

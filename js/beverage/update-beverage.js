@@ -1,26 +1,26 @@
 import { BASE_URL } from '../constants.js';
 
-function fetchSize(_id) {
-    fetch(`${BASE_URL}/size/id/${_id}`)
+function fetchBeverage(_id) {
+    fetch(`${BASE_URL}/beverage/id/${_id}`)
         .then(response => response.json())
-        .then(size => {
-            $("#_id").val(size._id);
-            $("#name").val(size.name);
-            $("#price").val(size.price);
+        .then(beverage => {
+            $("#_id").val(beverage._id);
+            $("#name").val(beverage.name);
+            $("#price").val(beverage.price);
         });
 }
 
 function loadInformation() {
     let urlParams = new URLSearchParams(window.location.search);
     let _id = urlParams.get('_id');
-    fetchSize(_id)
+    fetchBeverage(_id)
 }
 
-function putSize(size) {
+function putBeverage(beverage) {
 
-    fetch(`${BASE_URL}/size/`, {
+    fetch(`${BASE_URL}/beverage/`, {
         method: 'PUT',
-        body: JSON.stringify(size),
+        body: JSON.stringify(beverage),
         headers: {
             "Content-Type": "application/json; charset=utf-8",
         },
@@ -32,18 +32,18 @@ function putSize(size) {
 /**
  * Get the form and submit it with fetch API
  */
-let sizeForm = $("#size-form");
-sizeForm.submit(event => {
+let beverageForm = $("#beverage-form");
+beverageForm.submit(event => {
 
-    let size = getSizeData();
-    putSize(size);
+    let beverage = getBeverageData();
+    putBeverage(beverage);
 
     event.preventDefault();
     event.currentTarget.reset();
-    setTimeout(() => (window.location.href = "/app/size/sizes.html"), 500);
+    setTimeout(() => (window.location.href = "/app/beverage/beverages.html"), 500);
 });
 
-function getSizeData() {
+function getBeverageData() {
     return {
         _id: $("input[id='_id']").val(),
         name: $("input[id='name']").val(),
@@ -52,9 +52,10 @@ function getSizeData() {
 }
 
 function showNotification() {
-    let sizeAlert = $("#size-alert");
-    sizeAlert.toggle();
-    setTimeout(() => sizeAlert.toggle(), 5000);
+    let beverageAlert = $("#beverage-alert");
+    beverageAlert.toggle();
+    setTimeout(() => beverageAlert.toggle(), 5000);
 }
+
 
 window.onload = loadInformation;

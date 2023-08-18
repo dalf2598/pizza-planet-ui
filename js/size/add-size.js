@@ -26,6 +26,7 @@ sizeForm.submit(event => {
 
     event.preventDefault();
     event.currentTarget.reset();
+    setTimeout(() => (window.location.href = "/app/size/sizes.html"), 500);
 });
 
 /**
